@@ -1,0 +1,36 @@
+
+<div id="header">
+  <a href="<%= users_path %>">Users</a>
+</div>
+
+Username: <%= @user.username %>
+
+<%= form_for [@user,Game.new] do |f| %>
+  <%= f.submit "Create new game!" %>
+<% end %>
+
+
+<table style="text-align: left">
+  <tr>
+    <td>Wins</td>
+    <td><%= @user.win_count %></td>
+  </tr>
+  <tr>
+    <td>Loses</td>
+    <td><%= @user.lose_count %></td>
+  </tr>
+  <tr>
+    <td>Unfinished</td>
+    <td><%= @user.unfinished_count %></td>
+  </tr>
+  <tr>
+    <td>Win Percentage</td>
+    <td><%= @user.win_percentage %>%</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%= @user.games.length %></td>
+  </tr>
+</table>
+
+<a href="<%= user_games_path(@user) %>">View Games</a>

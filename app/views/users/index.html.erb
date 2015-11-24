@@ -1,0 +1,30 @@
+
+<div id="header">
+  <a href="/users/new">New User</a>
+</div>
+
+Users: <br/>
+
+
+
+<table>
+
+  <tr>
+    <td>Rank</td>
+    <td>Username</td>
+    <td>Game count</td>
+    <td>Win percentage</td>
+  </tr>
+
+  <% User.sorted_by_rank.each_with_index do |user,idx| %>
+    <tr>
+      <td>#<%= idx+1 %></td>
+      <td>
+        <a href="<%= user_path(user) %>"><%= user.username %></a><br />
+      </td>
+      <td><%= user.games.length %></td>
+      <td><%= user.win_percentage %>%</td>
+    </tr>
+  <% end %>
+
+</table>

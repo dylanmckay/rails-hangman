@@ -1,0 +1,9 @@
+
+<div id="header">
+  <a href="<%= users_path %>">Users</a>
+</div>
+
+<%= form_for User.new do |f| %>
+  <%= f.text_field :username, autofocus: true %>
+  <%= f.submit "Create user!" %>
+<% end %>
